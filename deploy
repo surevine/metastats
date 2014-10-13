@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# rsync so we get incremental file copy
+rsync -v -e ssh target/metastats-${USER}.war 10.66.2.25:~/
+
+# run a copy command on the server so the jboss deployer doesn't try to
+# deploy a half-uploaded file
+ssh 10.66.2.25 cp metastats-${USER}.war /opt/jboss/standalone/deployments/
+
+#cp target/metastats-${USER}.war /opt/jboss/standalone/deployments/rich.war
