@@ -5,6 +5,10 @@ import java.util.List;
 
 import org.jboss.resteasy.logging.Logger;
 
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.lib.RepositoryBuilder;
+
 import com.surevine.metastats.cache.CommunityCache;
 import com.surevine.metastats.scm.git.GitFilenameFilter;
 import com.surevine.metastats.scm.git.GitRepository;
@@ -40,6 +44,8 @@ public class Repositories {
 				LOG.info("Loading repository "+root);
 				try {
 					CommunityCache.getInstance().addRepository(new GitRepository(root));
+					Repository repository = new RepositoryBuilder().findGitDir(root).build();
+					new Git(repository).pull().call();
 				}
 				catch (Exception e) {
 					LOG.warn("Error adding repository at :"+root, e);
