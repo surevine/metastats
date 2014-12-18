@@ -1,6 +1,6 @@
 # metastats
 =========
-a project that needs a better name
+A project that needs a better name
 
 ## Summary
 
