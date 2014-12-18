@@ -49,7 +49,9 @@ public class CommunityCache {
 	}
 	
 	public void addRepository(final GenericRepository repository) {
-		repoCache.put(repository.getName(), repository);
+		if (!repoCache.containsKey(repository.getName())) {
+			repoCache.put(repository.getName(), repository);
+		}
 	}
 
 	public User getUser(final String email) {

@@ -1,8 +1,11 @@
 package com.surevine.metastats.api.path;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -45,13 +48,22 @@ public class Init {
 		return data;
 	}
 	
+	@GET
+	@Path("/reload")
+	public void reload() {
+		Repositories.load();
+	}
+	
 	@POST
 	@Path("/add")
-	public void add(@FormParam("url") String url) {
-		final File root = new File(ConfigurationProperties.get(ConfigurationProperties.REPOSITORY_CACHE));
+	@Consumes("application/x-www-form-urlencoded")
+	public void add(@FormParam("url") String url) throws UnsupportedEncodingException {
+		System.out.println("Cloning: "+url);
+		url = URLDecoder.decode(url, "UTF-8");
+		final File root = new File(ConfigurationProperties.get(ConfigurationProperties.REPOSITORY_CACHE).concat(url.substring(url.lastIndexOf('/'), url.length()-4)));
+		System.out.println("Cloning into "+root.getAbsolutePath());
 		try {
 			Git.cloneRepository()
-				.setRemote("origin")
 				.setURI(url)
 				.setDirectory(root)
 				.setBare(false)

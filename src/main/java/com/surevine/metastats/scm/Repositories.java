@@ -26,7 +26,7 @@ public class Repositories {
 		return CommunityCache.getInstance().getRepository(name);
 	}
 	
-	private static void load() {
+	public static void load() {
 		final long start = System.currentTimeMillis();
 		LOG.info("Loading repositories...");
 		

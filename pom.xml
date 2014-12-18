@@ -14,7 +14,7 @@
 	<repositories>
 		<repository>
 			<id>jgit-repository</id>
-			<url>http://download.eclipse.org/jgit/maven</url>
+			<url>https://repo.eclipse.org/content/groups/releases/</url>
 		</repository>
 		<repository>
 			<id>Sonatype-public</id>
@@ -56,7 +56,7 @@
 		<dependency>
 			<groupId>org.eclipse.jgit</groupId>
 			<artifactId>org.eclipse.jgit</artifactId>
-			<version>2.1.0.201209190230-r</version>
+			<version>3.5.2.201411120430-r</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
