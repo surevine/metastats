@@ -379,4 +379,112 @@ public class GitRepository implements GenericRepository {
 	public List<User> getUsers() {
 		return new ArrayList<User>(CommunityCache.getInstance().getUsers(emails));
 	}
+
+	public String getFetchUrl() {
+		return fetchUrl;
+	}
+
+	public void setFetchUrl(String fetchUrl) {
+		this.fetchUrl = fetchUrl;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getReadme() {
+		return readme;
+	}
+
+	public void setReadme(String readme) {
+		this.readme = readme;
+	}
+
+	public long getCodeFileCount() {
+		return codeFileCount;
+	}
+
+	public void setCodeFileCount(long codeFileCount) {
+		this.codeFileCount = codeFileCount;
+	}
+
+	public long getCommitCount() {
+		return commitCount;
+	}
+
+	public void setCommitCount(long commitCount) {
+		this.commitCount = commitCount;
+	}
+
+	public long getFileCount() {
+		return fileCount;
+	}
+
+	public void setFileCount(long fileCount) {
+		this.fileCount = fileCount;
+	}
+
+	public long getByteCount() {
+		return byteCount;
+	}
+
+	public void setByteCount(long byteCount) {
+		this.byteCount = byteCount;
+	}
+
+	public long getLinesOfCode() {
+		return linesOfCode;
+	}
+
+	public void setLinesOfCode(long linesOfCode) {
+		this.linesOfCode = linesOfCode;
+	}
+
+	public long getThirtyDaysAgo() {
+		return thirtyDaysAgo;
+	}
+
+	public void setThirtyDaysAgo(long thirtyDaysAgo) {
+		this.thirtyDaysAgo = thirtyDaysAgo;
+	}
+
+	public Set<String> getEmails() {
+		return emails;
+	}
+
+	public void setEmails(Set<String> emails) {
+		this.emails = emails;
+	}
+
+	public Map<String, Integer> getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(Map<String, Integer> languages) {
+		this.languages = languages;
+	}
+
+	public int[][] getPunchCard() {
+		return punchCard;
+	}
+
+	public void setPunchCard(int[][] punchCard) {
+		this.punchCard = punchCard;
+	}
+
+	public int[] getCommitsByWeek() {
+		return commitsByWeek;
+	}
+
+	public void setCommitsByWeek(int[] commitsByWeek) {
+		this.commitsByWeek = commitsByWeek;
+	}
+
+	public Map<String, User> getEmailToUser() {
+		return emailToUser;
+	}
 }

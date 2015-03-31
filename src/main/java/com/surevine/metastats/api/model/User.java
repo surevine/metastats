@@ -86,4 +86,64 @@ public class User {
 			}
 		}
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public long getNumCommits() {
+		return numCommits;
+	}
+
+	public void setNumCommits(long numCommits) {
+		this.numCommits = numCommits;
+	}
+
+	public int[][] getPunchCard() {
+		return punchCard;
+	}
+
+	public void setPunchCard(int[][] punchCard) {
+		this.punchCard = punchCard;
+	}
+
+	public int[] getCommitsByWeek() {
+		return commitsByWeek;
+	}
+
+	public void setCommitsByWeek(int[] commitsByWeek) {
+		this.commitsByWeek = commitsByWeek;
+	}
+
+	public Map<String, Integer> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(Map<String, Integer> projects) {
+		this.projects = projects;
+	}
+
+	public Map<String, Integer> getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(Map<String, Integer> languages) {
+		this.languages = languages;
+	}
+
+	public static DecimalFormat getFormat() {
+		return FORMAT;
+	}
 }

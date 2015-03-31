@@ -34,4 +34,12 @@ public class CharacterEncodingFilter implements Filter {
 	@Override
 	public void destroy() {
 	}
+
+	public String getEncoding() {
+		return encoding;
+	}
+
+	public void setEncoding(String encoding) {
+		this.encoding = encoding;
+	}
 }

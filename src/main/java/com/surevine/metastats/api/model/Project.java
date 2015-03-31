@@ -90,4 +90,148 @@ public class Project {
 		
 		return p;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getFetchUrl() {
+		return fetchUrl;
+	}
+
+	public void setFetchUrl(String fetchUrl) {
+		this.fetchUrl = fetchUrl;
+	}
+
+	public String getReadme() {
+		return readme;
+	}
+
+	public void setReadme(String readme) {
+		this.readme = readme;
+	}
+
+	public URI getUri() {
+		return uri;
+	}
+
+	public void setUri(URI uri) {
+		this.uri = uri;
+	}
+
+	public long getAgeInMillis() {
+		return ageInMillis;
+	}
+
+	public void setAgeInMillis(long ageInMillis) {
+		this.ageInMillis = ageInMillis;
+	}
+
+	public long getByteCount() {
+		return byteCount;
+	}
+
+	public void setByteCount(long byteCount) {
+		this.byteCount = byteCount;
+	}
+
+	public long getLinesOfCode() {
+		return linesOfCode;
+	}
+
+	public void setLinesOfCode(long linesOfCode) {
+		this.linesOfCode = linesOfCode;
+	}
+
+	public long getNumFiles() {
+		return numFiles;
+	}
+
+	public void setNumFiles(long numFiles) {
+		this.numFiles = numFiles;
+	}
+
+	public long getNumCommits() {
+		return numCommits;
+	}
+
+	public void setNumCommits(long numCommits) {
+		this.numCommits = numCommits;
+	}
+
+	public long getNumContributors() {
+		return numContributors;
+	}
+
+	public void setNumContributors(long numContributors) {
+		this.numContributors = numContributors;
+	}
+
+	public String getPrimaryLanguage() {
+		return primaryLanguage;
+	}
+
+	public void setPrimaryLanguage(String primaryLanguage) {
+		this.primaryLanguage = primaryLanguage;
+	}
+
+	public String getCocomoCost() {
+		return cocomoCost;
+	}
+
+	public void setCocomoCost(String cocomoCost) {
+		this.cocomoCost = cocomoCost;
+	}
+
+	public int[][] getPunchCard() {
+		return punchCard;
+	}
+
+	public void setPunchCard(int[][] punchCard) {
+		this.punchCard = punchCard;
+	}
+
+	public int[] getCommitsByWeek() {
+		return commitsByWeek;
+	}
+
+	public void setCommitsByWeek(int[] commitsByWeek) {
+		this.commitsByWeek = commitsByWeek;
+	}
+
+	public List<User> getTopContributors() {
+		return topContributors;
+	}
+
+	public void setTopContributors(List<User> topContributors) {
+		this.topContributors = topContributors;
+	}
+
+	public Map<String, URI> getLinks() {
+		return links;
+	}
+
+	public void setLinks(Map<String, URI> links) {
+		this.links = links;
+	}
+
+	public Map<String, Integer> getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(Map<String, Integer> languages) {
+		this.languages = languages;
+	}
+
+	public String[] getChildren() {
+		return children;
+	}
+
+	public void setChildren(String[] children) {
+		this.children = children;
+	}
 }
