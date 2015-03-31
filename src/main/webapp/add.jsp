@@ -13,7 +13,7 @@ input[type=text] {
 
 <p>Enter the URL for the project to add:</p>
 
-<form id="addForm">
+<form id="addForm" method="POST" action="api/init/add">
 	<input type="text" id="url" name="url" />
 	<input id="addFormSubmit" type="submit" value="Add" />
 </form>

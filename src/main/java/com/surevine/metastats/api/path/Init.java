@@ -13,14 +13,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.InvalidRemoteException;
 import org.eclipse.jgit.api.errors.TransportException;
 import org.jboss.resteasy.annotations.cache.Cache;
 
+import com.surevine.metastats.cache.CommunityCache;
 import com.surevine.metastats.scm.GenericRepository;
 import com.surevine.metastats.scm.Repositories;
+import com.surevine.metastats.scm.git.GitRepository;
 import com.surevine.metastats.util.ConfigurationProperties;
 
 @Path("/init")
@@ -61,12 +64,14 @@ public class Init {
 		final File root = new File(ConfigurationProperties.get(ConfigurationProperties.REPOSITORY_CACHE).concat(url.substring(url.lastIndexOf('/'), url.length()-4)));
 		System.out.println("Cloning into "+root.getAbsolutePath());
 		try {
-			Git.cloneRepository()
+			Git repo = Git.cloneRepository()
 				.setURI(url)
 				.setDirectory(root)
 				.setBare(false)
 				.setCloneAllBranches(false)
 				.call();
+			
+			CommunityCache.getInstance().addRepository(new GitRepository(repo.getRepository().getDirectory()));
 		} catch (InvalidRemoteException e) {
 			e.printStackTrace();
 		} catch (TransportException e) {
