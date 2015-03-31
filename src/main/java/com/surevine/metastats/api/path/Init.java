@@ -13,8 +13,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import lombok.Data;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.InvalidRemoteException;
@@ -78,12 +76,41 @@ public class Init {
 		}
 	}
 	
-	@Data
 	public class InitData {
 		private long repositoryCount = 0;
 		private long commitCount = 0;
 		private long contributorCount = 0;
 		private long linesOfCode = 0;
 		private long fileCount = 0;
+		public long getRepositoryCount() {
+			return repositoryCount;
+		}
+		public void setRepositoryCount(long repositoryCount) {
+			this.repositoryCount = repositoryCount;
+		}
+		public long getCommitCount() {
+			return commitCount;
+		}
+		public void setCommitCount(long commitCount) {
+			this.commitCount = commitCount;
+		}
+		public long getContributorCount() {
+			return contributorCount;
+		}
+		public void setContributorCount(long contributorCount) {
+			this.contributorCount = contributorCount;
+		}
+		public long getLinesOfCode() {
+			return linesOfCode;
+		}
+		public void setLinesOfCode(long linesOfCode) {
+			this.linesOfCode = linesOfCode;
+		}
+		public long getFileCount() {
+			return fileCount;
+		}
+		public void setFileCount(long fileCount) {
+			this.fileCount = fileCount;
+		}
 	}
 }

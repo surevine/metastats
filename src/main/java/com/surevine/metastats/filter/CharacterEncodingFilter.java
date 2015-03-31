@@ -9,13 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class CharacterEncodingFilter implements Filter {
 	
-	@Getter
-	@Setter
 	private String encoding;
 
 	@Override

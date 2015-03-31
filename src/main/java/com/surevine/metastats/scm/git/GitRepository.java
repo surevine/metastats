@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import lombok.Data;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoHeadException;
@@ -35,7 +33,6 @@ import com.surevine.metastats.util.DateConstants;
 import com.surevine.metastats.util.FileTraversal;
 import com.surevine.metastats.util.Language;
 
-@Data
 public class GitRepository implements GenericRepository {
 	
 	private static final long

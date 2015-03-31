@@ -10,11 +10,8 @@ import java.util.Map;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
-
 import com.surevine.metastats.scm.GenericRepository;
 
-@Data
 public class Project {
 
 	@NotNull

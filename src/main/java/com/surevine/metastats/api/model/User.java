@@ -8,11 +8,8 @@ import java.util.Map.Entry;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
-
 import com.surevine.metastats.util.DateConstants;
 
-@Data
 public class User {
 	
 	private static final DecimalFormat FORMAT = new DecimalFormat("#.##");
