@@ -1,19 +1,22 @@
 package com.surevine.metastats.api.path;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
-import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.InvalidRemoteException;
@@ -58,7 +61,7 @@ public class Init {
 	@POST
 	@Path("/add")
 	@Consumes("application/x-www-form-urlencoded")
-	public void add(@FormParam("url") String url) throws UnsupportedEncodingException {
+	public void add(@Context ServletContext context, @Context HttpServletResponse response, @FormParam("url") String url) throws UnsupportedEncodingException {
 		System.out.println("Cloning: "+url);
 		url = URLDecoder.decode(url, "UTF-8");
 		final File root = new File(ConfigurationProperties.get(ConfigurationProperties.REPOSITORY_CACHE).concat(url.substring(url.lastIndexOf('/'), url.length()-4)));
@@ -71,12 +74,18 @@ public class Init {
 				.setCloneAllBranches(false)
 				.call();
 			
-			CommunityCache.getInstance().addRepository(new GitRepository(repo.getRepository().getDirectory()));
+			CommunityCache.getInstance().addRepository(new GitRepository(root));
+			
+			Repositories.update();
+
+			response.sendRedirect(context.getContextPath() + "/?added=true");
 		} catch (InvalidRemoteException e) {
 			e.printStackTrace();
 		} catch (TransportException e) {
 			e.printStackTrace();
 		} catch (GitAPIException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

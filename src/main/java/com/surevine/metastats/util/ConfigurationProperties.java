@@ -5,7 +5,8 @@ import java.util.ResourceBundle;
 public enum ConfigurationProperties {
 	
 	REPOSITORY_CACHE,
-	REPOSITORY_PULL;
+	REPOSITORY_PULL,
+	REPOSITORY_POLL_PERIOD;
 
 	private static final ResourceBundle bundle;
 	
